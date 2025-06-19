@@ -13,3 +13,11 @@ var availableCategories = [
   
   Category(title: 'Jeans', Image: 'assets/images/jeans.jpg')
 ];
+
+// List<String> category = [
+//   'খুঁত এর শাড়ি',
+//   'Short kurti',
+//   'Long Kurti',
+//   'Round Frock',
+//   'Jeans'
+// ];
