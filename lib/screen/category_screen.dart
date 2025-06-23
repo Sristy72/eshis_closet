@@ -1,3 +1,4 @@
+import 'package:eshis_closet/models/category.dart';
 import 'package:eshis_closet/screen/frock.dart';
 import 'package:eshis_closet/screen/jeans.dart';
 import 'package:eshis_closet/screen/short_kurti.dart';
@@ -17,20 +18,20 @@ class CategoryScreen extends StatefulWidget {
 class _CategoryScreenState extends State<CategoryScreen> {
 
   _moveToSpecificCategory(String title) {
-    if(title == 'খুঁত এর শাড়ি'){
-      Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => KhutSaree(category: availableCategories[0],)));
+    if(title == 'khut Shari'){
+      Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => KhutSaree(category: categories[Categories.khut_shari]!)));//access map element using key first use map name categories then its key [Categories.khut_shari]
     }
-    else if(title == 'Short kurti'){
-      Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => ShortKurti(category: availableCategories[1])));
+    else if(title == 'Short Kurti'){
+      Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => ShortKurti(category: categories[Categories.Short_Kurti]!)));
     }
     else if(title == 'Long Kurti'){
-      Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => LongKurti(category: availableCategories[2],)));
+      Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => LongKurti(category: categories[Categories.Long_Kurti]!)));
     }
     else if(title == 'Round Frock'){
-      Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => Frock(category: availableCategories[3],)));
+      Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => Frock(category: categories[Categories.Round_Frock]!)));
     }
     else{
-      Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => Jeans(category: availableCategories[4],)));
+      Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => Jeans(category: categories[Categories.Jeans]!)));
     }
   }
 
@@ -45,17 +46,17 @@ class _CategoryScreenState extends State<CategoryScreen> {
         ),
 
         children: [
-          for (final category in availableCategories)
+          for (final category in categories.entries)
             GestureDetector(
               onTap: () {
-                _moveToSpecificCategory(category.title);
+                _moveToSpecificCategory(category.value.title);
               },
               child: Container(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 7),
                   child: Stack(
                     children: [
-                      Image.asset(category.Image, fit: BoxFit.cover, height: 200, width: 200,),
+                      Image.asset(category.value.categoryImage, fit: BoxFit.cover, height: 200, width: 200,),
                       Positioned(
                         bottom: 0,
                         left: 0,
@@ -63,7 +64,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                         child: Container(
                           color: Colors.black54,
                           child: Text(
-                            category.title,
+                            category.value.title,
                             textAlign: TextAlign.center,
                             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 17),
                           ),

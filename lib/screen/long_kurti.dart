@@ -1,3 +1,4 @@
+import 'package:eshis_closet/widget/fetch_dress_from_firebase.dart';
 import 'package:flutter/material.dart';
 
 import '../models/category.dart';
@@ -21,7 +22,7 @@ class _LongKurtiState extends State<LongKurti> {
       appBar: AppBar(backgroundColor: Color(0xff5baf92),title: Text(widget.category.title), actions: [
         IconButton(onPressed: (){_addNewDress(widget.category);}, icon: Icon(Icons.add))
       ],),
-      body: Center(child: Text('Short Kurti')),
+      body: fetch_dress_from_firebase(category: widget.category)
     );
   }
 }

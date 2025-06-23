@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/category.dart';
+import '../widget/fetch_dress_from_firebase.dart';
 import 'add_new_dress.dart';
 
 class Frock extends StatefulWidget {
@@ -21,7 +22,7 @@ class _FrockState extends State<Frock> {
       appBar: AppBar(backgroundColor: Color(0xff5baf92),title: Text(widget.category.title), actions: [
         IconButton(onPressed: (){_addNewDress(widget.category);}, icon: Icon(Icons.add))
       ],),
-      body: Center(child: Text('Short Kurti')),
+      body: fetch_dress_from_firebase(category: widget.category)
     );
   }
 }

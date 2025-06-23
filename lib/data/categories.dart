@@ -2,22 +2,26 @@
 
 import 'package:eshis_closet/models/category.dart';
 
-var availableCategories = [
-  Category(title: 'খুঁত এর শাড়ি', Image: 'assets/images/khut.jpg'),
-  
-  Category(title: 'Short kurti', Image: 'assets/images/short_kurti.jpg'),
-  
-  Category(title: 'Long Kurti', Image: 'assets/images/long_kurti.jpg'),
-  
-  Category(title: 'Round Frock', Image: 'assets/images/frock.jpg'),
-  
-  Category(title: 'Jeans', Image: 'assets/images/jeans.jpg')
-];
+var categories = {
+  Categories.khut_shari: Category(
+    title: 'khut Shari',
+    categoryImage: 'assets/images/khut.jpg',
+  ),
+  Categories.Short_Kurti: Category(
+    title: 'Short Kurti',
+    categoryImage: 'assets/images/short_kurti.jpg',
+  ),
+  Categories.Long_Kurti: Category(
+    title: 'Long Kurti',
+    categoryImage: 'assets/images/long_kurti.jpg',
+  ),
+  Categories.Round_Frock: Category(
+    title: 'Round Frock',
+    categoryImage: 'assets/images/frock.jpg',
+  ),
+  Categories.Jeans: Category(
+    title: 'Jeans',
+    categoryImage: 'assets/images/jeans.jpg',
+  ),
+};
 
-// List<String> category = [
-//   'খুঁত এর শাড়ি',
-//   'Short kurti',
-//   'Long Kurti',
-//   'Round Frock',
-//   'Jeans'
-// ];
