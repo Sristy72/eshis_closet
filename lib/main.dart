@@ -1,4 +1,5 @@
 import 'package:eshis_closet/screen/category_screen.dart';
+import 'package:eshis_closet/screen/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -26,8 +27,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Eshi\'s Closet',
       debugShowCheckedModeBanner: false,
-      home: CategoryScreen(),
+      home: SplashScreen(),
     );
   }
 }

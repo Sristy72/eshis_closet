@@ -246,7 +246,6 @@ import 'package:path/path.dart' as p;
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:uuid/uuid.dart';
 
-import '../data/categories.dart';
 import '../models/new_dress_model.dart';
 
 class AddNewDress extends StatefulWidget {
@@ -264,6 +263,7 @@ class _AddNewDressState extends State<AddNewDress> {
   final TextEditingController _priceTEController = TextEditingController();
   File? _pickedImage;
   DateTime? _selectedDate;
+  bool _isSending = false;
 
   @override
   Widget build(BuildContext context) {
@@ -375,14 +375,17 @@ class _AddNewDressState extends State<AddNewDress> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    ElevatedButton(onPressed: () {}, child: Text('Reset')),
-
-                    SizedBox(width: 15),
+                    TextButton(
+                      onPressed: _isSending ? null : () {
+                        _reset();
+                      },
+                      child: Text('Reset'),
+                    ),
                     ElevatedButton(
-                      onPressed: () {
+                      onPressed: _isSending ? null : () {
                         _saveNewItem();
                       },
-                      child: Text('Save Item'),
+                      child: _isSending ? SizedBox(height:16, width: 16, child: CircularProgressIndicator()) : Text('Add item'),
                     ),
                   ],
                 ),
@@ -468,6 +471,17 @@ class _AddNewDressState extends State<AddNewDress> {
         ).showSnackBar(SnackBar(content: Text('Error: $e')));
       }
     }
+  }
+
+  _reset(){
+    _formKey.currentState?.reset();
+    setState(() {
+
+    });
+    _pickedImage = null;
+    _selectedDate = null;
+    _titleTEController.clear();
+    _priceTEController.clear();
   }
 
   @override
