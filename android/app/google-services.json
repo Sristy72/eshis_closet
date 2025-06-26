@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "65470328204",
+    "project_id": "eshis-closet",
+    "storage_bucket": "eshis-closet.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:65470328204:android:c0ce87e0677fd37df9baa9",
+        "android_client_info": {
+          "package_name": "com.example.eshis_closet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcfVD41l-pYlGRKMzwr0NCakdl6zJisXY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
