@@ -15,7 +15,7 @@ class DressDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff6a4866),
-        title: Text(dressTitle, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+        title: Text('Detail of $dressTitle', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
           leading: IconButton(onPressed: (){
             Navigator.pop(context);
           }, icon: Icon(CupertinoIcons.arrow_left, color: Colors.white,))
@@ -36,10 +36,10 @@ class DressDetailScreen extends StatelessWidget {
                       ),
                       boxShadow: [
                         BoxShadow(
-                            blurRadius: 30,
+                            blurRadius: 10,
                             color: Colors.grey.withOpacity(0.9),
                             spreadRadius: 5,
-                            offset: Offset(0, 15)
+                            offset: Offset(0, 7)
                         )
                       ]
                   ),

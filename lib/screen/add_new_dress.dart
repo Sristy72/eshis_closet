@@ -425,7 +425,7 @@ class _AddNewDressState extends State<AddNewDress> {
     });
   }
 
-  Future<String> _uploadImageToSupabase(File image) async {
+  _uploadImageToSupabase(File image) async {
     final bucket = Supabase.instance.client.storage.from('images');
     final filename = '${const Uuid().v4()}${p.extension(image.path)}';
     await bucket.upload(filename, image);
@@ -438,6 +438,10 @@ class _AddNewDressState extends State<AddNewDress> {
       final title = _titleTEController.text;
       final price = int.parse(_priceTEController.text);
       final category = widget.category.title;
+
+      setState(() {
+        _isSending = true;
+      });
 
       if (_pickedImage == null ||
           title.trim().isEmpty ||
@@ -457,6 +461,9 @@ class _AddNewDressState extends State<AddNewDress> {
           'imageUrl': imageUrl,
           'date': _selectedDate,
           'createdAt': Timestamp.now(),
+        });
+        setState(() {
+          _isSending = false;
         });
 
         if (mounted) {
